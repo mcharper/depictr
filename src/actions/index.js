@@ -7,7 +7,7 @@ export const lyricsChangedAction = (text) => {
   }
   else {
     return dispatch => {
-      fetch('/keywords/' + text)
+      fetch(process.env.REACT_APP_API_HOST + '/keywords/' + text)
       .then(res => res.json())
       .then(
         json => {
@@ -27,7 +27,7 @@ export const fetchKeywordsSuccess = keywords => {
   else {
     return dispatch => {
       dispatch(updateKeywords(keywords));
-      fetch('/photos/' + keywords.join(' '))
+      fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' '))
       .then(res => res.json())
       .then(
         json => {
