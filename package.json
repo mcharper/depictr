@@ -1,0 +1,27 @@
+{
+  "name": "depictr",
+  "version": "1.0.0",
+  "description": "An app which takes lyrics or prose as input and retrieves interesting matching photos",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "author": "Mike Harper",
+  "license": "ISC",
+  "dependencies": {
+    "flickrapi": "^0.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "retinasdk": "^1.0.7",
+    "stopword": "^0.1.9"
+  },
+  "devDependencies": {},
+  "proxy": "http://localhost:5000"
+}
