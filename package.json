@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "An app which takes lyrics or prose as input and retrieves interesting matching photos",
   "main": "index.js",
+  "homepage": "https://mcharper.github.io/depictr",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Mike Harper",
   "license": "ISC",
@@ -22,6 +25,8 @@
     "retinasdk": "^1.0.7",
     "stopword": "^0.1.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  },
   "proxy": "http://localhost:5000"
 }
