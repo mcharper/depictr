@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import './LyricsForm.css';
 import debounce from "lodash/debounce";
 
+const LATENCY_MS = 3000;
+
 class LyricsForm extends Component {
   constructor(props) {
     super(props);
+
+    var debouncedChange = 
+      debounce((lyrics) => {
+        this.props.onChange(lyrics);
+      }, LATENCY_MS);
+
     this.onChange = (event) => {
         var lyrics = event.target.value;
-        debounce(() => {
-          this.props.onChange(lyrics);
-          }, 5000)();
+        debouncedChange(lyrics);
     }
   }
 

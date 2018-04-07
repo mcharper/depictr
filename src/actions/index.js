@@ -1,11 +1,5 @@
 
 export const lyricsChangedAction = (text) => {
-  var alphaRx = /^[A-Za-z0-9]/;
-  if(alphaRx.exec(text[text.length - 1])) 
-  {
-      return { type: 'DoNothing' };
-  }
-  else {
     return dispatch => {
       fetch(process.env.REACT_APP_API_HOST + '/keywords/' + text)
       .then(res => res.json())
@@ -17,7 +11,6 @@ export const lyricsChangedAction = (text) => {
         error => dispatch(fetchKeywordsFailure(error))
       )
     };
-  }
 }
 
 export const fetchKeywordsSuccess = keywords => {
@@ -41,9 +34,13 @@ export const fetchKeywordsSuccess = keywords => {
 }
 
 export const updateKeywords = keywords => {
+  var alphaRx = /^[A-Za-z0-9]/g;
+  console.log(keywords);
+  var sanitisedKeywords = keywords.map((el) => { el.replace(alphaRx,'') });
+
   return {
     type: 'UpdateKeywords',
-    keywords: keywords
+    keywords: sanitisedKeywords
   }
 }
 
