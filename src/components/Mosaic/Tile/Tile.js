@@ -12,7 +12,7 @@ import './Tile.css';
     else
     {
         return (
-            <td className="tile">{text}</td>
+            <td className="tile"></td>
         );
     }
 } 
