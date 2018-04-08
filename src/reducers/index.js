@@ -6,9 +6,9 @@ export const initialState = { photos: [
     {"url":"https://picsum.photos/g/210?random"},
     {"url":"https://picsum.photos/200?random&blur"},
     {"url":"https://picsum.photos/g/210?random"},
-    {"url":"https://picsum.photos/210?random&blur"},
-    {"url":"https://picsum.photos/g/200?random"},
-    {"url":"https://picsum.photos/210?random&blur"},
+    {"url":"https://picsum.photos/200?random&blur"},
+    {"url":"https://picsum.photos/g/210?random"},
+    {"url":"https://picsum.photos/200?random&blur"},
 ], keywords: [] };
 
 export const reducer = (state = initialState, action) => {
