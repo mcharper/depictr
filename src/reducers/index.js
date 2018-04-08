@@ -14,21 +14,15 @@ export const initialState = { photos: [
 export const reducer = (state = initialState, action) => {
     switch(action.type) {
         case 'UpdateKeywords':
-            console.log('UpdateKeywords');
-            var newState = {...state, keywords:  action.keywords }
-            console.log(JSON.stringify(newState));
-            return newState;
+            return {...state, keywords:  action.keywords };
 
         case 'FetchPhotosSuccess':
             console.log('FetchPhotosSuccess');
             // action.photos.map((p) => { var img = new Image(); img.src = p.url; return p } );
-            var newState = {...state, photos:  action.photos }
-            console.log(JSON.stringify(newState));
-            return newState;
+            return {...state, photos:  action.photos };
 
         case 'PhotosHasErrored':
             console.log('PhotosHasErrored');
-            console.log(JSON.stringify(action.data));
             return state;
 
         default: return state;

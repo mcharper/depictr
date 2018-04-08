@@ -22,3 +22,12 @@ td.tile img {
   /* modern browsers */
   opacity: 0;
 }
+
+td.tile a {
+  text-decoration: none;
+  width:10px;
+  color: silver;
+  font-size: 1em;
+	transform: rotate(90deg);
+  float:right;
+}

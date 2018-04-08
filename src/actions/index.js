@@ -14,7 +14,7 @@ export const lyricsChangedAction = (text) => {
 }
 
 export const fetchKeywordsSuccess = keywords => {
-  if(!keywords || keywords.length < 2) {
+  if(!keywords || keywords.length < 1) {
       return { type: 'DoNothing' };
   }
   else {

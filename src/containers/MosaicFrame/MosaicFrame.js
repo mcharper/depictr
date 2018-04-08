@@ -5,14 +5,15 @@ import { connect } from 'react-redux';
 class MosaicFrame extends Component {
   render() {
     return (
-        <Mosaic photos={this.props.photos}></Mosaic>
+        <Mosaic photos={this.props.photos} keywords={this.props.keywords}></Mosaic>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    photos: state.photos
+    photos: state.photos,
+    keywords: state.keywords
   }
 }
 

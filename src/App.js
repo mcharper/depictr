@@ -11,7 +11,10 @@ class App extends Component {
         {<header className="App-header">
           depictr
         </header>}
-        <p className="App-intro"></p>
+        <p className="App-intro">
+        A plaything for visualising lyrics. Type some in now while I find a few pics on flickr to get my engine started.<br /> 
+        It's on free hosting and sleeps when no-one visits so please be patient :-( 
+        </p>
         <div className="Left-pane">
           <LyricsFormFrame></LyricsFormFrame>
         </div>

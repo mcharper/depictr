@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './LyricsForm.css';
 import debounce from "lodash/debounce";
 
-const LATENCY_MS = 3000;
+const LATENCY_MS = 500;
 
 class LyricsForm extends Component {
   constructor(props) {
