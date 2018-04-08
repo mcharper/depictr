@@ -9,7 +9,6 @@ class LyricsFormFrame extends Component {
     // Get month and time of day to find appropriate photos to be retrieving
     // This kicks of a request to the API to wake it up while the user is typing
     var timeOfDayAndMonth = moment().format("MMMM ") + getHumanTime(moment()); 
-    this.props.onChange('kickstart');
     this.props.onChange(timeOfDayAndMonth);
   }
 
