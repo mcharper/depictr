@@ -13,6 +13,27 @@ export const lyricsChangedAction = (text) => {
     };
 }
 
+export const shuffleAction = (keywords) => {
+  return dispatch => {
+    fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' '))
+    .then(res => res.json())
+    .then(
+      json => {
+        dispatch(fetchPhotosSuccess(json))
+      },
+      error => dispatch(fetchPhotosFailure(error))
+    )
+  }
+}
+
+export const tileLocked = (ordinal) => {
+  console.log("tileLocked: " + ordinal);
+  return {
+    type: 'TileLocked',
+    data: ordinal
+  }
+}
+
 export const fetchKeywordsSuccess = keywords => {
   if(!keywords || keywords.length < 1) {
       return { type: 'DoNothing' };
@@ -34,9 +55,8 @@ export const fetchKeywordsSuccess = keywords => {
 }
 
 export const updateKeywords = keywords => {
-  var alphaRx = /^[A-Za-z0-9]/g;
-  console.log(keywords);
-  var sanitisedKeywords = keywords.map((el) => { el.replace(alphaRx,'') });
+  var alphaRx = /[^0-9a-z]/gi;
+  var sanitisedKeywords = keywords.map((el) => { return el.replace(alphaRx,''); });
 
   return {
     type: 'UpdateKeywords',

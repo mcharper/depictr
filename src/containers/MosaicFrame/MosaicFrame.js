@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Mosaic from '../../components/Mosaic/Mosaic.js';
 import { connect } from 'react-redux';
+import { tileLocked } from '../../actions/index.js';
 
 class MosaicFrame extends Component {
   render() {
-    return (
-        <Mosaic photos={this.props.photos} keywords={this.props.keywords}></Mosaic>
-    );
-  }
+      return (
+          <Mosaic photos={this.props.photos} keywords={this.props.keywords} onClick={this.props.onClick}></Mosaic>
+      );
+    }
 }
 
 const mapStateToProps = state => {
@@ -18,7 +19,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {}
+  return {
+    onClick: (ordinal) => dispatch(tileLocked(ordinal))
+ }
 }
 
 const ConnectedMosaicFrame = connect(

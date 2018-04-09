@@ -34,3 +34,17 @@ body {
 .Left-pane {
   float: left;
 }
+
+.control-panel {
+  clear: both;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.control-panel button {
+  height: 50px;
+  width: 100px;
+  background-color: #92a8d1;
+  font-size: 1.2em;
+  margin-right: 10px;
+}

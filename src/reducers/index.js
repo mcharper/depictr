@@ -14,15 +14,17 @@ export const initialState = { photos: [
 export const reducer = (state = initialState, action) => {
     switch(action.type) {
         case 'UpdateKeywords':
-            return {...state, keywords:  action.keywords };
+            return {...state, keywords: action.keywords };
+
+        case 'Shuffle':
+            return {...state };
 
         case 'FetchPhotosSuccess':
-            console.log('FetchPhotosSuccess');
-            // action.photos.map((p) => { var img = new Image(); img.src = p.url; return p } );
-            return {...state, photos:  action.photos };
+            var photoLockArray=[0,0,0,1,0,0,0,0,0];
+            var filteredPhotos = action.photos.map((p, i) => { return (photoLockArray[i] == 0) ? p : state.photos[i] } );
+            return {...state, photos: filteredPhotos, keywords: state.keywords };
 
         case 'PhotosHasErrored':
-            console.log('PhotosHasErrored');
             return state;
 
         default: return state;
