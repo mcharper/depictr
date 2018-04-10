@@ -1,15 +1,18 @@
 
 export const initialState = { photos: [
-    {"url":"https://picsum.photos/200?random&blur"},
-    {"url":"https://picsum.photos/g/210?random"},
-    {"url":"https://picsum.photos/200?random&blur"},
-    {"url":"https://picsum.photos/g/210?random"},
-    {"url":"https://picsum.photos/200?random&blur"},
-    {"url":"https://picsum.photos/g/210?random"},
-    {"url":"https://picsum.photos/200?random&blur"},
-    {"url":"https://picsum.photos/g/210?random"},
-    {"url":"https://picsum.photos/200?random&blur"},
-], keywords: [] };
+        {"url":"https://picsum.photos/200?random&blur"},
+        {"url":"https://picsum.photos/g/210?random"},
+        {"url":"https://picsum.photos/200?random&blur"},
+        {"url":"https://picsum.photos/g/210?random"},
+        {"url":"https://picsum.photos/200?random&blur"},
+        {"url":"https://picsum.photos/g/210?random"},
+        {"url":"https://picsum.photos/200?random&blur"},
+        {"url":"https://picsum.photos/g/210?random"},
+        {"url":"https://picsum.photos/200?random&blur"},
+    ], 
+    keywords: [],
+    lockedTiles: [false, false, false, false, false, false, false, false, false]
+ };
 
 export const reducer = (state = initialState, action) => {
     switch(action.type) {
@@ -19,10 +22,15 @@ export const reducer = (state = initialState, action) => {
         case 'Shuffle':
             return {...state };
 
+        case 'LockTile':
+            var lockedTiles = state.lockedTiles.map((t, i) => { return i == action.ordinal ? !t : t } );
+            console.log(JSON.stringify(lockedTiles));
+            return { ...state, lockedTiles: lockedTiles }
+
         case 'FetchPhotosSuccess':
-            var photoLockArray=[0,0,0,1,0,0,0,0,0];
-            var filteredPhotos = action.photos.map((p, i) => { return (photoLockArray[i] == 0) ? p : state.photos[i] } );
-            return {...state, photos: filteredPhotos, keywords: state.keywords };
+            console.log(state.lockedTiles[0]);
+            var filteredPhotos = action.photos.map((p, i) => { return (state.lockedTiles[i] ? state.photos[i] : p) } );
+            return {...state, photos: filteredPhotos, keywords: state.keywords, lockedTiles: state.lockedTiles };
 
         case 'PhotosHasErrored':
             return state;

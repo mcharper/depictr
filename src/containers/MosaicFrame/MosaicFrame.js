@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Mosaic from '../../components/Mosaic/Mosaic.js';
 import { connect } from 'react-redux';
-import { tileLocked } from '../../actions/index.js';
+import { lockTile } from '../../actions/index.js';
 
 class MosaicFrame extends Component {
   render() {
@@ -20,7 +20,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: (ordinal) => dispatch(tileLocked(ordinal))
+    onClick: (ordinal) => dispatch(lockTile(ordinal))
  }
 }
 

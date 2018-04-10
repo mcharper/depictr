@@ -26,11 +26,10 @@ export const shuffleAction = (keywords) => {
   }
 }
 
-export const tileLocked = (ordinal) => {
-  console.log("tileLocked: " + ordinal);
+export const lockTile = (ordinal) => {
   return {
-    type: 'TileLocked',
-    data: ordinal
+    type: 'LockTile',
+    ordinal: ordinal
   }
 }
 
