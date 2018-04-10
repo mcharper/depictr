@@ -26,6 +26,20 @@ export const shuffleAction = (keywords) => {
   }
 }
 
+export const hoverOverTile = (ordinal) => {
+  return {
+    type: 'HoverOverTile',
+    ordinal: ordinal
+  }
+}
+
+export const cancelHover = (ordinal) => {
+  return {
+    type: 'CancelHover',
+    ordinal: ordinal
+  }
+}
+
 export const lockTile = (ordinal) => {
   return {
     type: 'LockTile',

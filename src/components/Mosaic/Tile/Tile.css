@@ -23,11 +23,33 @@ td.tile img {
   opacity: 0;
 }
 
-td.tile a {
+td.tile a.owner {
   text-decoration: none;
   width:10px;
-  color: silver;
+  color: white;
   font-size: 1em;
 	transform: rotate(90deg);
   float:right;
+}
+
+input.lock  {
+  position: relative;
+  top: 90px;
+  left: 5px;
+}
+
+i.lock {
+  font-size: 1.3em;
+  color: black;
+  position: relative;
+  top: 90px;
+  left: 5px;
+}
+
+i.unlock {
+  font-size: 1.3em;
+  color: black;
+  position: relative;
+  top: 90px;
+  left: 5px;
 }
