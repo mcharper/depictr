@@ -1,8 +1,10 @@
-textarea {
-  padding: 40px;
-  background-color: #92a8d1;
-  font-style: oblique;
-  font-size: 18px;
-  width: 300px;
-  height: 530px;
+button {
+  float: left;
+  margin-right: 20px;
+}
+
+p {
+  font-style: italic;
+  font-size: 0.9em;
+  color: silver;
 }

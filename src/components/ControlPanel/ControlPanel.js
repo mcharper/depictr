@@ -14,6 +14,10 @@ class ControlPanel extends Component {
     return (
         <div>
           <button onClick={this.onClick}>Shuffle</button>
+          <p>
+          Shuffle to get some fresh photos.<br />
+          To lock a photo in place, click it.<br />
+          Click again to unlock it.</p>
         </div>
     );
   }
