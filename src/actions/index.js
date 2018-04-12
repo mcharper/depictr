@@ -1,7 +1,8 @@
 
 export const lyricsChangedAction = (text) => {
+    var singleLinifiedText = text.replace(/(\r\n|\n|\r)/gm,' ');
     return dispatch => {
-      fetch(process.env.REACT_APP_API_HOST + '/keywords/' + text)
+      fetch(process.env.REACT_APP_API_HOST + '/keywords/' + singleLinifiedText)
       .then(res => res.json())
       .then(
         json => {
@@ -58,7 +59,6 @@ export const fetchKeywordsSuccess = keywords => {
       .then(res => res.json())
       .then(
         json => {
-          console.log(JSON.stringify(json));
           dispatch(fetchPhotosSuccess(json))
         },
         error => dispatch(fetchPhotosFailure(error))

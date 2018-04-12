@@ -18,6 +18,7 @@ export const initialState = { photos: [
 export const reducer = (state = initialState, action) => {
     switch(action.type) {
         case 'UpdateKeywords':
+            var newKeyWords = [...state.keywords, action.keywords].slice(0,17);
             return {...state, keywords: action.keywords };
 
         case 'Shuffle':
@@ -35,7 +36,7 @@ export const reducer = (state = initialState, action) => {
 
         case 'FetchPhotosSuccess':
             var filteredPhotos = action.photos.map((p, i) => { return (state.lockedTiles[i] ? state.photos[i] : p) } );
-            return {...state, photos: filteredPhotos, keywords: state.keywords, lockedTiles: state.lockedTiles };
+            return {...state, photos: filteredPhotos };
 
         case 'PhotosHasErrored':
             return state;
