@@ -8,7 +8,7 @@ class LyricsFormFrame extends Component {
   componentDidMount() {
     // Get time of day to find appropriate photos to be retrieving
     // This kicks of a request to the API to wake it up while the user is typing
-    var timeOfDay = getHumanTime(moment()); 
+    var timeOfDay = getTimeOfDay(moment()); 
     this.props.onChange(timeOfDay);
   }
 
@@ -19,24 +19,22 @@ class LyricsFormFrame extends Component {
   }
 }
 
-function getHumanTime (m) {
-	var g = null; //return g
-	
-	if(!m || !m.isValid()) { return; } //if we can't find a valid or filled moment, we return.
-	
-	var split_afternoon = 12 //24hr time to split the afternoon
-	var split_evening = 17 //24hr time to split the evening
-	var currentHour = parseFloat(m.format("HH"));
-	
-	if(currentHour >= split_afternoon && currentHour <= split_evening) {
-		g = "day";
-	} else if(currentHour >= split_evening) {
-		g = "evening";
-	} else {
-		g = "morning";
-	}
-	
-	return g;
+function getTimeOfDay (m) {
+  if(!m || !m.isValid()) { return ''; }
+
+  var currentHour = parseFloat(m.format('HH'));
+  if(currentHour < 0 || currentHour > 23) { return '' };
+
+  var timesOfDay = [
+      'midnight', 'night', 'night', 'night',
+      'night', 'early morning', 'early morning', 'early morning',
+      'morning', 'morning', 'morning', 'morning',
+      'afternoon', 'afternoon', 'afternoon', 'afternoon',
+      'afternoon', 'afternoon', 'evening', 'evening',
+      'evening', 'late evening', 'late evening', 'night',
+  ];
+
+  return timesOfDay[currentHour];
 }
 
 const mapStateToProps = state => {
