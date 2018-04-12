@@ -6,10 +6,10 @@ import moment from 'moment';
 
 class LyricsFormFrame extends Component {
   componentDidMount() {
-    // Get month and time of day to find appropriate photos to be retrieving
+    // Get time of day to find appropriate photos to be retrieving
     // This kicks of a request to the API to wake it up while the user is typing
-    var timeOfDayAndMonth = moment().format("MMMM ") + getHumanTime(moment()); 
-    this.props.onChange(timeOfDayAndMonth);
+    var timeOfDay = getHumanTime(moment()); 
+    this.props.onChange(timeOfDay);
   }
 
   render() {
@@ -29,7 +29,7 @@ function getHumanTime (m) {
 	var currentHour = parseFloat(m.format("HH"));
 	
 	if(currentHour >= split_afternoon && currentHour <= split_evening) {
-		g = "afternoon";
+		g = "day";
 	} else if(currentHour >= split_evening) {
 		g = "evening";
 	} else {

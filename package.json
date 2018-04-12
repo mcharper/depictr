@@ -1,6 +1,6 @@
 {
   "name": "depictr",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "An app which takes lyrics or prose as input and retrieves interesting matching photos",
   "main": "index.js",
   "homepage": "https://mcharper.github.io/depictr",
