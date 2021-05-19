@@ -15,11 +15,10 @@
   "author": "Mike Harper",
   "license": "ISC",
   "dependencies": {
-    "flickrapi": "^0.6.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.21",
     "moment": "^2.22.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.14.0",
     "react-redux": "^5.0.6",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
@@ -29,5 +28,17 @@
   },
   "devDependencies": {
     "gh-pages": "^1.1.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
