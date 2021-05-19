@@ -12,7 +12,7 @@ const Mosaic = ( { photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, on
                             text={photos[0].owner}
                             link={photos[0].link}
                             ordinal='0'
-                            onClick={(e) => onClick(e.value)}
+                            onClick={() => onClick('0')}
                             onMouseEnter={() => onMouseEnter('0')}
                             onMouseLeave={() => onMouseLeave('0')}
                             isBeingHovered={hoverOverTile == 0}
@@ -22,7 +22,7 @@ const Mosaic = ( { photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, on
                             text={photos[1].owner}
                             link={photos[1].link}
                             ordinal='1'
-                            onClick={(e) => onClick(e.value)}
+                            onClick={() => onClick('1')}
                             onMouseEnter={() => onMouseEnter('1')}
                             onMouseLeave={() => onMouseLeave('1')}
                             isBeingHovered={hoverOverTile == 1}
@@ -32,7 +32,7 @@ const Mosaic = ( { photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, on
                             text={photos[2].owner}
                             link={photos[2].link}
                             ordinal='2'
-                            onClick={(e) => onClick(e.value)}
+                            onClick={() => onClick('2')}
                             onMouseEnter={() => onMouseEnter('2')}
                             onMouseLeave={() => onMouseLeave('2')}
                             isBeingHovered={hoverOverTile == 2}
@@ -44,7 +44,7 @@ const Mosaic = ( { photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, on
                             text={photos[3].owner}
                             link={photos[3].link}
                             ordinal='3'
-                            onClick={(e) => onClick(e.value)}
+                            onClick={() => onClick('3')}
                             onMouseEnter={() => onMouseEnter('3')}
                             onMouseLeave={() => onMouseLeave('3')}
                             isBeingHovered={hoverOverTile == 3}
@@ -54,7 +54,7 @@ const Mosaic = ( { photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, on
                             text={photos[4].owner}
                             link={photos[4].link}
                             ordinal='4'
-                            onClick={(e) => onClick(e.value)}
+                            onClick={() => onClick('4')}
                             onMouseEnter={() => onMouseEnter('4')}
                             onMouseLeave={() => onMouseLeave('4')}
                             isBeingHovered={hoverOverTile == 4}
@@ -64,6 +64,7 @@ const Mosaic = ( { photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, on
                             text={photos[5].owner}
                             link={photos[5].link}
                             ordinal='5'
+                            onClick={() => onClick('5')}
                             onMouseEnter={() => onMouseEnter('5')}
                             onMouseLeave={() => onMouseLeave('5')}
                             isBeingHovered={hoverOverTile == 5}
@@ -75,7 +76,7 @@ const Mosaic = ( { photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, on
                             text={photos[6].owner}
                             link={photos[6].link}
                             ordinal='6'
-                            onClick={(e) => onClick(e.value)}
+                            onClick={() => onClick('6')}
                             onMouseEnter={() => onMouseEnter('6')}
                             onMouseLeave={() => onMouseLeave('6')}
                             isBeingHovered={hoverOverTile == 6}
@@ -85,7 +86,7 @@ const Mosaic = ( { photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, on
                             text={photos[7].owner}
                             link={photos[7].link}
                             ordinal='7'
-                            onClick={(e) => onClick(e.value)}
+                            onClick={() => onClick('7')}
                             onMouseEnter={() => onMouseEnter('7')}
                             onMouseLeave={() => onMouseLeave('7')}
                             isBeingHovered={hoverOverTile == 7}
@@ -95,7 +96,7 @@ const Mosaic = ( { photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, on
                             text={photos[8].owner}
                             link={photos[8].link}
                             ordinal='8'
-                            onClick={(e) => onClick(e.value)}
+                            onClick={() => onClick('8')}
                             onMouseEnter={() => onMouseEnter('8')}
                             onMouseLeave={() => onMouseLeave('8')}
                             isBeingHovered={hoverOverTile == 8}
