@@ -4,8 +4,6 @@
 
 Depictr is a creative toy for visualising song lyrics. You type some words into a box and a mosaic of vaguely relevant photos appears.
 
-[Demo](https://mcharper.github.io/depictr/)
-
 [Video demo](https://www.useloom.com/share/fe565eddb4f047f09bdc85422a7af2a3)
 
 ## I've seen it before
@@ -22,7 +20,7 @@ The React source is in the /src folder.
 
 The app uses a React front end with Redux for state management.
 
-The back end is a separate app hosted on Heroku. It acts as a proxy for other services.
+The back end is a separate app currently hosted on Heroku. It acts as a proxy for other services.
 
 The app uses two external services:
 - cortical retina API to analyse the text and extract keywords
