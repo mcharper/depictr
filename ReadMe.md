@@ -20,7 +20,7 @@ The React source is in the /src folder.
 
 The app uses a React front end with Redux for state management.
 
-The back end is a separate app currently hosted on Heroku. It acts as a proxy for other services.
+The back end is a separate app. It acts as a proxy for other services.
 
 The app uses two external services:
 - cortical retina API to analyse the text and extract keywords
