@@ -1,7 +1,7 @@
 import React from 'react';
 import './Tile.css';
 
-const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked, onClick, onMouseEnter, onMouseLeave }) => {
+export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked, onClick, onMouseEnter, onMouseLeave }) => {
     if (url) {
         if (isBeingHovered) {
             return (
@@ -31,7 +31,4 @@ const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked, onClick, onM
             <td className="tile"></td>
         );
     }
-}
-
-export default Tile;
-
+};

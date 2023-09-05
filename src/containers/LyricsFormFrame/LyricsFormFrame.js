@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LyricsForm from '../../components/LyricsForm/LyricsForm.js';
+import { LyricsForm } from '../../components/LyricsForm/LyricsForm.js';
 import { lyricsChangedAction } from '../../actions/index.js';
 import { connect } from 'react-redux';
 import moment from 'moment';

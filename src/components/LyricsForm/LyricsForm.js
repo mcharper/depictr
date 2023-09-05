@@ -4,31 +4,22 @@ import debounce from "lodash/debounce";
 
 const LATENCY_MS = 500;
 
-class LyricsForm extends Component {
-  constructor(props) {
-    super(props);
+export const LyricsForm = ({ text, onChange }) => {
+  const debouncedChange = debounce((lyrics) => {
+    onChange(lyrics);
+  }, LATENCY_MS);
 
-    var debouncedChange = 
-      debounce((lyrics) => {
-        this.props.onChange(lyrics);
-      }, LATENCY_MS);
+  const onTextChanged = (event) => {
+    var lyrics = event.target.value;
+    debouncedChange(lyrics);
+  };
 
-    this.onChange = (event) => {
-        var lyrics = event.target.value;
-        debouncedChange(lyrics);
-    }
-  }
-
-  render() {
-    return (
-        <form>
-            <textarea 
-            value={this.props.text}
-            onChange={this.onChange}></textarea>
-        </form>
-    );
-  }
-}
-
-export default LyricsForm;
+  return (
+    <form>
+      <textarea value={text}
+        onChange={onTextChanged}>
+      </textarea>
+    </form>
+  );
+};
 

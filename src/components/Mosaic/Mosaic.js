@@ -4,7 +4,7 @@ import './Mosaic.css';
 
 const MosaicSideSize = 3;
 
-const Mosaic = ({ photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, onMouseLeave }) => {
+export const Mosaic = ({ photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, onMouseLeave }) => {
     const rowOrCol = Array(Math.floor(Math.sqrt(photos.length))).fill();
 
     let Table = () => (
@@ -35,6 +35,3 @@ const Mosaic = ({ photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, onM
 
     return (<Table />);
 };
-
-export default Mosaic;
-

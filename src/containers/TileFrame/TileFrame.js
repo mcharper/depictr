@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Tile from '../../components/Tile/Tile.js';
+import { Tile } from '../../components/Tile/Tile.js';
 import { hoverOverTile, cancelHover, lockTile } from '../../actions/index.js';
 
 class TileFrame extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Mosaic from '../../components/Mosaic/Mosaic.js';
+import { Mosaic } from '../../components/Mosaic/Mosaic.js';
 import { connect } from 'react-redux';
 import { hoverOverTile, cancelHover, lockTile } from '../../actions/index.js';
 
