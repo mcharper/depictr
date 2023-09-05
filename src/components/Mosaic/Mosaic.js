@@ -1,11 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import TileFrame from '../../containers/TileFrame/TileFrame.js';
 import './Mosaic.css';
 
-const MosaicSideSize = 3;
-
 export const Mosaic = ({ photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, onMouseLeave }) => {
-    const rowOrCol = Array(Math.floor(Math.sqrt(photos.length))).fill();
+    const mosaicSideSize = useSelector(state => state.mosaicSideSize);
+    const rowOrCol = Array(Number.parseInt(mosaicSideSize)).fill();
 
     let Table = () => (
         <table className="mosaic">
@@ -13,7 +13,7 @@ export const Mosaic = ({ photos, hoverOverTile, lockedTiles, onClick, onMouseEnt
                 {rowOrCol.map((row, rowIndex) => (
                     <tr key={rowIndex}>
                         {rowOrCol.map((heading, index) => {
-                            const ordinal = rowIndex * Math.floor(Math.sqrt(photos.length)) + index;
+                            const ordinal = rowIndex * Number.parseInt(mosaicSideSize) + index;
                             return <td key={index}>
                                 <TileFrame url={photos[ordinal].url}
                                     text={photos[ordinal].owner}

@@ -9,7 +9,7 @@ class ControlPanelFrame extends Component {
 
   render() {
     return (
-      <ControlPanel keywords={this.props.keywords} mosaicSideSize={this.props.mosaicSideSize} onChange={this.props.onChange} onClick={this.props.onClick}></ControlPanel>
+      <ControlPanel keywords={this.props.keywords} onChange={this.props.onChange} onClick={this.props.onClick}></ControlPanel>
     );
   }
 }

@@ -12,10 +12,6 @@ class App extends Component {
         {<header className="App-header">
           depictr
         </header>}
-        <p className="App-intro">
-          A plaything for visualising lyrics.
-          {/* <i className="fa fa-spinner fa-spin"></i> */}
-        </p>
         <div className="Left-pane">
           <LyricsFormFrame></LyricsFormFrame>
         </div>

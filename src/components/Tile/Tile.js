@@ -1,7 +1,10 @@
 import React from 'react';
 import './Tile.css';
+import { useSelector } from 'react-redux';
 
 export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked, onClick, onMouseEnter, onMouseLeave }) => {
+    const mosaicSideSize = useSelector(state => state.mosaicSideSize);
+
     if (url) {
         if (isBeingHovered) {
             return (
@@ -22,6 +25,7 @@ export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked, onCli
                     onClick={() => onClick(ordinal)}
                     onMouseEnter={() => onMouseEnter(ordinal)}
                     onMouseLeave={() => onMouseLeave(ordinal)}>
+                    <div style={{ width: `calc(600 / ${mosaicSideSize})`, height: `calc(800 / ${mosaicSideSize})` }}></div>
                 </td>
             );
         }

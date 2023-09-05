@@ -15,7 +15,7 @@ export const lyricsChangedAction = (text) => {
 
 export const shuffleAction = (keywords) => {
   return dispatch => {
-    fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' ') + '?batchSize=9')
+    fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' ') + '?batchSize=25')
       .then(res => res.json())
       .then(
         json => {
@@ -54,7 +54,7 @@ export const fetchKeywordsSuccess = keywords => {
   else {
     return dispatch => {
       dispatch(updateKeywords(keywords));
-      fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' ') + '?batchSize=9')
+      fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' ') + '?batchSize=25')
         .then(res => res.json())
         .then(
           json => {

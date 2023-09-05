@@ -16,18 +16,13 @@
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.21",
-    "moment": "^2.22.0",
+    "moment": "^2.29.4",
     "react": "^16.2.0",
     "react-dom": "^16.14.0",
-    "react-redux": "^5.0.6",
+    "react-redux": "^8.1.2",
     "react-scripts": "1.0.17",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "retinasdk": "^1.0.7",
-    "stopword": "^0.1.9"
-  },
-  "devDependencies": {
-    "gh-pages": "^1.1.0"
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2"
   },
   "browserslist": {
     "production": [
