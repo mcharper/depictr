@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ControlPanel from '../../components/ControlPanel/ControlPanel.js';
-import { shuffleAction } from '../../actions/index.js';
+import { changeMosaicSideSize, shuffleAction } from '../../actions/index.js';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
@@ -10,20 +10,22 @@ class ControlPanelFrame extends Component {
 
   render() {
     return (
-        <ControlPanel keywords={this.props.keywords} onClick={this.props.onClick}></ControlPanel>
+      <ControlPanel keywords={this.props.keywords} mosaicSideSize={this.props.mosaicSideSize} onChange={this.props.onChange} onClick={this.props.onClick}></ControlPanel>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    keywords: state.keywords
+    keywords: state.keywords,
+    mosaicSideSize: state.mosaicSideSize
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: (keywords) => dispatch(shuffleAction(keywords))
+    //    onClick: (keywords) => dispatch(shuffleAction(keywords))
+    onChange: (size) => dispatch(changeMosaicSideSize(size))
   }
 }
 

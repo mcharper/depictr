@@ -1,29 +1,28 @@
 
 export const lyricsChangedAction = (text) => {
-    var singleLinifiedText = text.replace(/(\r\n|\n|\r)/gm,' ');
-    return dispatch => {
-      fetch(process.env.REACT_APP_API_HOST + '/keywords/' + singleLinifiedText)
+  var singleLinifiedText = text.replace(/(\r\n|\n|\r)/gm, ' ');
+  return dispatch => {
+    fetch(process.env.REACT_APP_API_HOST + '/keywords/' + singleLinifiedText)
       .then(res => res.json())
       .then(
         json => {
-          console.log(JSON.stringify(json));
           dispatch(fetchKeywordsSuccess(json));
-          },
+        },
         error => dispatch(fetchKeywordsFailure(error))
       )
-    };
+  };
 }
 
 export const shuffleAction = (keywords) => {
   return dispatch => {
-    fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' '))
-    .then(res => res.json())
-    .then(
-      json => {
-        dispatch(fetchPhotosSuccess(json))
-      },
-      error => dispatch(fetchPhotosFailure(error))
-    )
+    fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' ') + '?batchSize=9')
+      .then(res => res.json())
+      .then(
+        json => {
+          dispatch(fetchPhotosSuccess(json))
+        },
+        error => dispatch(fetchPhotosFailure(error))
+      )
   }
 }
 
@@ -49,27 +48,27 @@ export const lockTile = (ordinal) => {
 }
 
 export const fetchKeywordsSuccess = keywords => {
-  if(!keywords || keywords.length < 1) {
-      return { type: 'DoNothing' };
+  if (!keywords || keywords.length < 1) {
+    return { type: 'DoNothing' };
   }
   else {
     return dispatch => {
       dispatch(updateKeywords(keywords));
-      fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' '))
-      .then(res => res.json())
-      .then(
-        json => {
-          dispatch(fetchPhotosSuccess(json))
-        },
-        error => dispatch(fetchPhotosFailure(error))
-      )
+      fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' ') + '?batchSize=9')
+        .then(res => res.json())
+        .then(
+          json => {
+            dispatch(fetchPhotosSuccess(json))
+          },
+          error => dispatch(fetchPhotosFailure(error))
+        )
     };
   }
 }
 
 export const updateKeywords = keywords => {
   var alphaRx = /[^0-9a-z]/gi;
-  var sanitisedKeywords = keywords.map((el) => { return el.replace(alphaRx,''); });
+  var sanitisedKeywords = keywords.map((el) => { return el.replace(alphaRx, ''); });
 
   return {
     type: 'UpdateKeywords',
@@ -97,3 +96,11 @@ export const fetchPhotosFailure = error => {
     data: error
   }
 }
+
+export const changeMosaicSideSize = mosaicSideSize => {
+  return {
+    type: 'ChangeMosaicSideSize',
+    data: mosaicSideSize
+  }
+}
+

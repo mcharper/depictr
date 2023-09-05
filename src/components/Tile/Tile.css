@@ -39,11 +39,20 @@ input.lock  {
 }
 
 i.lock {
-  font-size: 1.3em;
+  background-color: white;
+  border: 1px solid silver;
+  border-radius: 0.25em;
   color: black;
-  position: relative;
-  top: 90px;
+  font-size: 1.3em;
+  height: 1em;
   left: 5px;
+  margin-bottom: 1em;
+  opacity: 50%;
+  padding: 0.2em;
+  position: relative;
+  text-align: center;
+  top: 90px;
+  width: 1em;
 }
 
 i.unlock {

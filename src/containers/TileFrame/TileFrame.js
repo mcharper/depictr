@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
-import Mosaic from '../../components/Mosaic/Mosaic.js';
 import { connect } from 'react-redux';
+import Tile from '../../components/Tile/Tile.js';
 import { hoverOverTile, cancelHover, lockTile } from '../../actions/index.js';
 
-class MosaicFrame extends Component {
+class TileFrame extends Component {
   render() {
     return (
-      <Mosaic
-        photos={this.props.photos}
-        keywords={this.props.keywords}
-        hoverOverTile={this.props.hoverOverTile}
-        lockedTiles={this.props.lockedTiles}
+      <Tile
+        url={this.props.url}
+        text={this.props.text}
+        link={this.props.link}
+        ordinal={this.props.ordinal}
+        isBeingHovered={this.props.isBeingHovered}
+        isLocked={this.props.isLocked}
         onClick={this.props.onClick}
         onMouseEnter={this.props.onMouseEnter}
         onMouseLeave={this.props.onMouseLeave}>
-      </Mosaic>
+      </Tile>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    photos: state.photos,
-    keywords: state.keywords,
     hoverOverTile: state.hoverOverTile,
     lockedTiles: state.lockedTiles
   }
@@ -36,9 +36,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const ConnectedMosaicFrame = connect(
+const ConnectedTileFrame = connect(
   mapStateToProps,
   mapDispatchToProps
-)(MosaicFrame)
+)(TileFrame)
 
-export default ConnectedMosaicFrame;
+export default ConnectedTileFrame;
