@@ -24,18 +24,25 @@ export const Mosaic = () => {
                     <tr key={rowIndex}>
                         {rowOrCol.map((heading, index) => {
                             const ordinal = rowIndex * Number.parseInt(mosaicSideSize) + index;
-                            return <td key={index}>
-                                <Tile url={photos[ordinal].url}
-                                    text={photos[ordinal].owner}
-                                    link={photos[ordinal].link}
-                                    ordinal={ordinal.toString()}
-                                    onClick={() => onClick(ordinal.toString())}
-                                    onMouseEnter={() => onMouseEnter(ordinal.toString())}
-                                    onMouseLeave={() => onMouseLeave(ordinal.toString())}
-                                    isBeingHovered={hoverOverTile == ordinal}
-                                    isLocked={lockedTiles[ordinal]}
-                                />
-                            </td>
+                            return ordinal < photos.length ?
+                                <td key={index}>
+                                    <Tile url={photos[ordinal].url}
+                                        text={photos[ordinal].owner}
+                                        link={photos[ordinal].link}
+                                        ordinal={ordinal.toString()}
+                                        onClick={() => onClick(ordinal.toString())}
+                                        onMouseEnter={() => onMouseEnter(ordinal.toString())}
+                                        onMouseLeave={() => onMouseLeave(ordinal.toString())}
+                                        isBeingHovered={hoverOverTile == ordinal}
+                                        isLocked={lockedTiles[ordinal]}
+                                    />
+                                </td> :
+                                <td>
+                                    <td className="tile">
+                                        <div style={{ width: `calc(30vw / ${mosaicSideSize})`, height: `calc(30vw / ${mosaicSideSize})` }}>
+                                        </div>
+                                    </td>
+                                </td>
                         })}
                     </tr>
                 ))}
