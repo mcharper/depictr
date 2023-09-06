@@ -9,22 +9,18 @@ class ControlPanelFrame extends Component {
 
   render() {
     return (
-      <ControlPanel keywords={this.props.keywords} onChange={this.props.onChange} onClick={this.props.onClick}></ControlPanel>
+      <ControlPanel></ControlPanel>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    keywords: state.keywords,
-    mosaicSideSize: state.mosaicSideSize
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: (keywords) => dispatch(shuffleAction(keywords)),
-    onChange: (size) => dispatch(changeMosaicSideSize(size))
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { ControlPanel } from './components/ControlPanel/ControlPanel.js';
 import MosaicFrame from './containers/MosaicFrame/MosaicFrame.js';
 import LyricsFormFrame from './containers/LyricsFormFrame/LyricsFormFrame.js';
-import ControlPanelFrame from './containers/ControlPanelFrame/ControlPanelFrame.js';
 import './App.css';
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
         </div>
         <div className="control-panel">
           <LyricsFormFrame></LyricsFormFrame>
-          <ControlPanelFrame></ControlPanelFrame>
+          <ControlPanel></ControlPanel>
         </div>
         <div>
           <MosaicFrame></MosaicFrame>
