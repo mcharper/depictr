@@ -1,9 +1,15 @@
 import React from 'react';
 import './Tile.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { hoverOverTile, cancelHover, lockTile } from '../../actions/index';
 
-export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked, onClick, onMouseEnter, onMouseLeave }) => {
+export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked }) => {
     const mosaicSideSize = useSelector(state => state.mosaicSideSize);
+    const dispatch = useDispatch();
+
+    const onClick = (ordinal) => dispatch(lockTile(ordinal));
+    const onMouseEnter = (ordinal) => dispatch(hoverOverTile(ordinal));
+    const onMouseLeave = (ordinal) => dispatch(cancelHover(ordinal));
 
     if (url) {
         if (isBeingHovered) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import TileFrame from '../../containers/TileFrame/TileFrame.js';
+import { Tile } from '../../components/Tile/Tile.js';
 import './Mosaic.css';
 
 export const Mosaic = ({ photos, hoverOverTile, lockedTiles, onClick, onMouseEnter, onMouseLeave }) => {
@@ -15,7 +15,7 @@ export const Mosaic = ({ photos, hoverOverTile, lockedTiles, onClick, onMouseEnt
                         {rowOrCol.map((heading, index) => {
                             const ordinal = rowIndex * Number.parseInt(mosaicSideSize) + index;
                             return <td key={index}>
-                                <TileFrame url={photos[ordinal].url}
+                                <Tile url={photos[ordinal].url}
                                     text={photos[ordinal].owner}
                                     link={photos[ordinal].link}
                                     ordinal={ordinal.toString()}
