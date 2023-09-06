@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ControlPanel } from './components/ControlPanel/ControlPanel.js';
-import MosaicFrame from './containers/MosaicFrame/MosaicFrame.js';
+import { Mosaic } from './components/Mosaic/Mosaic.js';
 import LyricsFormFrame from './containers/LyricsFormFrame/LyricsFormFrame.js';
 import './App.css';
 
@@ -13,11 +13,11 @@ class App extends Component {
           epictr
         </div>
         <div className="control-panel">
-          <LyricsFormFrame></LyricsFormFrame>
-          <ControlPanel></ControlPanel>
+          <LyricsFormFrame />
+          <ControlPanel />
         </div>
         <div>
-          <MosaicFrame></MosaicFrame>
+          <Mosaic />
         </div>
       </div>
     );
