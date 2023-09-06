@@ -10,13 +10,11 @@ export const ControlPanel = ({ keywords, onChange, onClick }) => {
   }
 
   return (
-    <div>
+    <div style={{ display: "inline-block" }}>
       <button onClick={() => onClick(keywords)}>Shuffle</button>
+      <label style={{ color: 'gray' }}>Mosaic Size:</label>
       <input type="range" min="1" max="5" value={mosaicSideSize} onChange={changeMosaicSize} class="slider" ></input>
-      <p>
-        Shuffle to get some fresh photos.<br />
-        To lock a photo in place, click it.<br />
-        Click again to unlock it.</p>
+      <button onClick={() => onClick(['green', 'trees'])}>Example</button>
     </div>
   );
 }

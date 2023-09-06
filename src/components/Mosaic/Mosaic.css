@@ -1,4 +1,5 @@
 table {
-  table-layout:fixed;
-  width: 60%;
+  border: 1px solid silver;
+  width: 50%;
+  height: 50%;
 }

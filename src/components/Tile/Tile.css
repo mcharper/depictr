@@ -1,11 +1,9 @@
 td.tile {
   background-position: center center;
   background-repeat: no-repeat;
-  height: 200px;
-  max-height: 200px;
-  max-width: 200px;
+  height: 98%;
+  width: 98%;
   overflow: hidden;
-  width: 200px;
 }
 
 /* Set the image to fill its parent and make transparent */

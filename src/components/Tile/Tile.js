@@ -14,8 +14,10 @@ export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked, onCli
                     onClick={() => onClick(ordinal)}
                     onMouseEnter={() => onMouseEnter(ordinal)}
                     onMouseLeave={() => onMouseLeave(ordinal)}>
-                    <i className={"lock fa fa-" + (isLocked ? "lock" : "unlock")}></i>
-                    <a className="owner" target="_blank" href={link}>{text}</a>
+                    <div style={{ width: `calc(30vw / ${mosaicSideSize})`, height: `calc(30vw / ${mosaicSideSize})` }}>
+                        <i className={"lock fa fa-" + (isLocked ? "lock" : "unlock")}></i>
+                        <a className="owner" target="_blank" href={link}>{text}</a>
+                    </div>
                 </td>
             );
         }
@@ -25,7 +27,8 @@ export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked, onCli
                     onClick={() => onClick(ordinal)}
                     onMouseEnter={() => onMouseEnter(ordinal)}
                     onMouseLeave={() => onMouseLeave(ordinal)}>
-                    <div style={{ width: `calc(600 / ${mosaicSideSize})`, height: `calc(800 / ${mosaicSideSize})` }}></div>
+                    <div style={{ width: `calc(30vw / ${mosaicSideSize})`, height: `calc(30vw / ${mosaicSideSize})` }}>
+                    </div>
                 </td>
             );
         }

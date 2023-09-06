@@ -9,17 +9,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {<header className="App-header">
-          depictr
-        </header>}
-        <div className="Left-pane">
-          <LyricsFormFrame></LyricsFormFrame>
-        </div>
-        <div className="right-pane">
-          <MosaicFrame></MosaicFrame>
+        <div className="App-header">
+          epictr
         </div>
         <div className="control-panel">
+          <LyricsFormFrame></LyricsFormFrame>
           <ControlPanelFrame></ControlPanelFrame>
+        </div>
+        <div>
+          <MosaicFrame></MosaicFrame>
         </div>
       </div>
     );
