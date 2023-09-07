@@ -11,8 +11,7 @@ initialState.lockedTiles = Array(initialState.mosaicSideSize ** 2).fill(false);
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'UpdateKeywords':
-            var newKeyWords = [...state.keywords, action.keywords].slice(0, 17);
-            return { ...state, keywords: newKeyWords };
+            return { ...state, keywords: action.keywords };
 
         case 'Shuffle':
             return { ...state };

@@ -11,8 +11,8 @@ export const lyricsChangedAction = (text, batchSize) => {
     fetch(process.env.REACT_APP_API_HOST + '/keywords/' + singleLinifiedText)
       .then(res => res.json())
       .then(
-        json => {
-          dispatch(fetchKeywordsSuccess(json, batchSize));
+        result => {
+          dispatch(fetchKeywordsSuccess(result, batchSize));
         },
         error => dispatch(fetchKeywordsFailure(error))
       )
