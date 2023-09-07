@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ControlPanel } from './components/ControlPanel/ControlPanel.js';
 import { Mosaic } from './components/Mosaic/Mosaic.js';
-import LyricsFormFrame from './containers/LyricsFormFrame/LyricsFormFrame.js';
+import { LyricsForm } from './components/LyricsForm/LyricsForm.js';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
           epictr
         </div>
         <div className="control-panel">
-          <LyricsFormFrame />
+          <LyricsForm />
           <ControlPanel />
         </div>
         <div>

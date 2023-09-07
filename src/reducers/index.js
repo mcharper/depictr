@@ -35,7 +35,6 @@ export const reducer = (state = initialState, action) => {
             return state;
 
         case 'ChangeMosaicSideSize':
-            console.log(`ChangeMosaicSideSize to ${action.data}`);
             return { ...state, mosaicSideSize: action.data };
 
         default: return state;

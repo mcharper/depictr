@@ -1,29 +1,39 @@
+export const changeMosaicSideSize = mosaicSideSize => {
+  return {
+    type: 'ChangeMosaicSideSize',
+    data: mosaicSideSize
+  }
+}
 
-export const lyricsChangedAction = (text) => {
+export const lyricsChangedAction = (text, batchSize) => {
   var singleLinifiedText = text.replace(/(\r\n|\n|\r)/gm, ' ');
   return dispatch => {
     fetch(process.env.REACT_APP_API_HOST + '/keywords/' + singleLinifiedText)
       .then(res => res.json())
       .then(
         json => {
-          dispatch(fetchKeywordsSuccess(json));
+          dispatch(fetchKeywordsSuccess(json, batchSize));
         },
         error => dispatch(fetchKeywordsFailure(error))
       )
   };
 }
 
-export const shuffleAction = (keywords) => {
+export const fetchPhotos = (keywords, batchSize) => {
   return dispatch => {
-    fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' ') + '?batchSize=25')
+    fetch(process.env.REACT_APP_API_HOST + `/photos/${keywords.join(' ')}?batchSize=${batchSize}`)
       .then(res => res.json())
       .then(
         json => {
           dispatch(fetchPhotosSuccess(json))
         },
         error => dispatch(fetchPhotosFailure(error))
-      )
+      );
   }
+}
+
+export const shuffleAction = (keywords, batchSize) => {
+  return dispatch => dispatch(fetchPhotos(keywords, batchSize));
 }
 
 export const hoverOverTile = (ordinal) => {
@@ -47,26 +57,19 @@ export const lockTile = (ordinal) => {
   }
 }
 
-export const fetchKeywordsSuccess = keywords => {
+const fetchKeywordsSuccess = (keywords, batchSize) => {
   if (!keywords || keywords.length < 1) {
     return { type: 'DoNothing' };
   }
   else {
     return dispatch => {
       dispatch(updateKeywords(keywords));
-      fetch(process.env.REACT_APP_API_HOST + '/photos/' + keywords.join(' ') + '?batchSize=25')
-        .then(res => res.json())
-        .then(
-          json => {
-            dispatch(fetchPhotosSuccess(json))
-          },
-          error => dispatch(fetchPhotosFailure(error))
-        )
+      dispatch(fetchPhotos(keywords, batchSize));
     };
   }
 }
 
-export const updateKeywords = keywords => {
+const updateKeywords = keywords => {
   var alphaRx = /[^0-9a-z]/gi;
   var sanitisedKeywords = keywords.map((el) => { return el.replace(alphaRx, ''); });
 
@@ -76,31 +79,24 @@ export const updateKeywords = keywords => {
   }
 }
 
-export const fetchKeywordsFailure = error => {
+const fetchKeywordsFailure = error => {
   return {
     type: 'FetchKeywordsFailure',
     data: error
   }
 }
 
-export const fetchPhotosSuccess = photos => {
+const fetchPhotosSuccess = photos => {
   return {
     type: 'FetchPhotosSuccess',
     photos: photos
   }
 }
 
-export const fetchPhotosFailure = error => {
+const fetchPhotosFailure = error => {
   return {
     type: 'FetchPhotosFailure',
     data: error
-  }
-}
-
-export const changeMosaicSideSize = mosaicSideSize => {
-  return {
-    type: 'ChangeMosaicSideSize',
-    data: mosaicSideSize
   }
 }
 
