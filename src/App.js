@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          epictr
+          depictr
         </div>
         <div className="control-panel">
           <LyricsForm />

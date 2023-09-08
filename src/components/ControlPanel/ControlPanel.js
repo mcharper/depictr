@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeMosaicSideSize, shuffleAction } from '../../actions/index.js';
-import { lyricsChangedAction } from '../../actions/index.js';
+
+import { changeMosaicSideSize, lyricsChangedAction, shuffleAction } from '../../actions/index.js';
+
 import './ControlPanel.css';
 
 export const ControlPanel = () => {

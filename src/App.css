@@ -21,11 +21,6 @@ body {
   text-align: left;
 }
 
-.App-header:before {
-  color: #f00000;
-  content: "d";
-}
-
 .App-title {
   font-size: 1em;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
