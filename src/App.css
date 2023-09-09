@@ -4,8 +4,8 @@ body {
 
 .App {
     text-align: left;
-    width: 50vw;
-    height: 90vh;
+    max-width: 1200px;
+    max-height: 100%;
     margin-right: auto;
     margin-left: auto;
 }

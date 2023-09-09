@@ -1,12 +1,14 @@
 
+const MaxMosaicSideSize = 10;
+
 export let initialState = {
     mosaicSideSize: 3,
     keywords: [],
     hoverOverTile: null
 };
 
-initialState.photos = Array(initialState.mosaicSideSize ** 2).fill({ "url": "https://picsum.photos/200?random&blur" });
-initialState.lockedTiles = Array(initialState.mosaicSideSize ** 2).fill(false);
+initialState.photos = Array(MaxMosaicSideSize ** 2).fill({ "url": "" });
+initialState.lockedTiles = Array(MaxMosaicSideSize ** 2).fill(false);
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -34,7 +36,8 @@ export const reducer = (state = initialState, action) => {
             return state;
 
         case 'ChangeMosaicSideSize':
-            return { ...state, mosaicSideSize: action.data };
+            // Reset locked tiles for now if mosaic size changes, because locking is currently based on tile slot
+            return { ...state, mosaicSideSize: action.data, lockedTiles: Array(action.data ** 2).fill(false) };
 
         default: return state;
     }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './LyricsForm.css';
 import { lyricsChangedAction } from '../../actions/index.js';
 import debounce from "lodash/debounce";

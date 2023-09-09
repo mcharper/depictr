@@ -11,7 +11,7 @@ export const Mosaic = () => {
     const lockedTiles = useSelector(state => state.lockedTiles);
     const dispatch = useDispatch();
 
-    const rowOrCol = Array(Number.parseInt(mosaicSideSize)).fill();
+    const rowOrCol = Array(+mosaicSideSize).fill();
 
     const onClick = (ordinal) => dispatch(lockTile(ordinal));
     const onMouseEnter = (ordinal) => dispatch(hoverOverTile(ordinal));
@@ -23,9 +23,9 @@ export const Mosaic = () => {
                 {rowOrCol.map((row, rowIndex) => (
                     <tr key={rowIndex}>
                         {rowOrCol.map((heading, index) => {
-                            const ordinal = rowIndex * Number.parseInt(mosaicSideSize) + index;
-                            return ordinal < photos.length ?
-                                <td key={index}>
+                            const ordinal = rowIndex * +mosaicSideSize + index;
+                            return ordinal < photos.length && photos[ordinal] ?
+                                <React.Fragment key={index}>
                                     <Tile url={photos[ordinal].url}
                                         text={photos[ordinal].owner}
                                         link={photos[ordinal].link}
@@ -36,12 +36,8 @@ export const Mosaic = () => {
                                         isBeingHovered={hoverOverTile == ordinal}
                                         isLocked={lockedTiles[ordinal]}
                                     />
-                                </td> :
-                                <td>
-                                    <td className="tile">
-                                        <div style={{ width: `calc(30vw / ${mosaicSideSize})`, height: `calc(30vw / ${mosaicSideSize})` }}>
-                                        </div>
-                                    </td>
+                                </React.Fragment> :
+                                <td className="tile">
                                 </td>
                         })}
                     </tr>
