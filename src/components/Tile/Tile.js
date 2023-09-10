@@ -14,13 +14,11 @@ export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked }) => 
 
     const onDrag = (e, ordinal) => {
         e.preventDefault();
-        console.log(`Moving ${ordinal}`);
         dispatch(setSwapSource(ordinal));
     }
 
     const onDrop = (e, ordinal) => {
         e.preventDefault();
-        console.log(`to ${ordinal}`);
         dispatch(swap(ordinal));
     }
 

@@ -11,6 +11,7 @@ td.hoverTile {
   background-size: cover;
   overflow: hidden;
   position: relative;
+  cursor: grab;
 }
 
 /* Set the image to fill its parent and make transparent */
@@ -26,6 +27,7 @@ td.tile img {
 
 td.hoverTile a.owner {
   color: white;
+  cursor: pointer;
   font-size: 1em;
   left: calc(100% - 5em);
   position: absolute;
@@ -39,6 +41,7 @@ td.hoverTile i.lock {
   border: 1px solid silver;
   border-radius: 0.25rem;
   color: gray;
+  cursor: pointer;
   font-size: 1.1rem;
   left: 1%;
   opacity: 50%;
@@ -49,6 +52,7 @@ td.hoverTile i.lock {
 
 td.hoverTile i.unlock {
   color: black;
+  cursor: pointer;
   font-size: 1.1em;
   left: 1%;
   position: absolute;
