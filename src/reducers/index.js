@@ -4,7 +4,8 @@ const MaxMosaicSideSize = 10;
 export let initialState = {
     mosaicSideSize: 3,
     keywords: [],
-    hoverOverTile: null
+    hoverOverTile: null,
+    swapSource: null
 };
 
 initialState.photos = Array(MaxMosaicSideSize ** 2).fill({ "url": "" });
@@ -38,6 +39,41 @@ export const reducer = (state = initialState, action) => {
         case 'ChangeMosaicSideSize':
             // Reset locked tiles for now if mosaic size changes, because locking is currently based on tile slot
             return { ...state, mosaicSideSize: action.data, lockedTiles: Array(action.data ** 2).fill(false) };
+
+        case 'SetSwapSource':
+            return { ...state, swapSource: action.ordinal };
+
+        case 'Swap':
+            let source = state.photos[state.swapSource];
+            let target = state.photos[action.ordinal];
+
+            const changedPhotoArray = state.photos.map((photo, index) => {
+                if (index == action.ordinal) {
+                    return source;
+                }
+
+                if (index == state.swapSource) {
+                    return target;
+                }
+
+                // Keep it as-is
+                return photo;
+            })
+
+            const changedLockedTilesArray = state.lockedTiles.map((lockedStatus, index) => {
+                if (index == action.ordinal) {
+                    return state.lockedTiles[state.swapSource];
+                }
+
+                if (index == state.swapSource) {
+                    return state.lockedTiles[action.ordinal];
+                }
+
+                // Keep it as-is
+                return lockedStatus;
+            })
+
+            return { ...state, photos: [...changedPhotoArray], lockedTiles: [...changedLockedTilesArray] };
 
         default: return state;
     }

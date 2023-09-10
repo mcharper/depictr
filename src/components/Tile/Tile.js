@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Tile.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { hoverOverTile, cancelHover, lockTile } from '../../actions/index';
+import { hoverOverTile, cancelHover, lockTile, setSwapSource, swap } from '../../actions/index';
 
 export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked }) => {
     const mosaicSideSize = useSelector(state => state.mosaicSideSize);
@@ -15,15 +15,13 @@ export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked }) => 
     const onDrag = (e, ordinal) => {
         e.preventDefault();
         console.log(`Moving ${ordinal}`);
-        // TODO - Create action in Redux to set swap source
-        // Just needs an ordinal setting
+        dispatch(setSwapSource(ordinal));
     }
 
     const onDrop = (e, ordinal) => {
         e.preventDefault();
         console.log(`to ${ordinal}`);
-        // TODO - Create action in Redux to swap source with this, the destination
-        // Just needs another ordinal as destination, action will then perform swap
+        dispatch(swap(ordinal));
     }
 
     const allowDrop = (e) => {

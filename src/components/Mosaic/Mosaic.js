@@ -11,6 +11,7 @@ export const Mosaic = () => {
     const lockedTiles = useSelector(state => state.lockedTiles);
     const dispatch = useDispatch();
 
+    console.log(`+mosaicSideSize ${+mosaicSideSize}`)
     const rowOrCol = Array(+mosaicSideSize).fill();
 
     const onClick = (ordinal) => dispatch(lockTile(ordinal));

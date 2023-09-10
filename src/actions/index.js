@@ -57,6 +57,20 @@ export const lockTile = (ordinal) => {
   }
 }
 
+export const setSwapSource = (ordinal) => {
+  return {
+    type: 'SetSwapSource',
+    ordinal: ordinal
+  }
+}
+
+export const swap = (ordinal) => {
+  return {
+    type: 'Swap',
+    ordinal: ordinal
+  }
+}
+
 const fetchKeywordsSuccess = (keywords, batchSize) => {
   if (!keywords || keywords.length < 1) {
     return { type: 'DoNothing' };
