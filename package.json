@@ -6,6 +6,7 @@
   "homepage": "https://mcharper.github.io/depictr",
   "scripts": {
     "start": "react-scripts start",
+    "nd": "netlify dev",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -23,9 +24,15 @@
     "react": "^16.2.0",
     "react-dom": "^16.14.0",
     "react-redux": "^8.1.2",
-    "react-scripts": "1.0.17",
+    "react-scripts": "2.1.8",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "validator": "^13.11.0"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
