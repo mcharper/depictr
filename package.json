@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "An app which takes lyrics or prose as input and retrieves interesting matching photos",
   "main": "index.js",
-  "homepage": "https://mcharper.github.io/depictr",
+  "homepage": "depictr.netlify.app",
   "scripts": {
     "start": "react-scripts start",
     "nd": "netlify dev",
@@ -24,7 +24,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.14.0",
     "react-redux": "^8.1.2",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^2.1.8",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "validator": "^13.11.0"
