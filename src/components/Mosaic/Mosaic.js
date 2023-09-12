@@ -33,7 +33,7 @@ export const Mosaic = () => {
                                         onClick={() => onClick(ordinal.toString())}
                                         onMouseEnter={() => onMouseEnter(ordinal.toString())}
                                         onMouseLeave={() => onMouseLeave(ordinal.toString())}
-                                        isBeingHovered={hoverOverTile == ordinal}
+                                        isBeingHovered={hoverOverTile && +hoverOverTile === +ordinal}
                                         isLocked={lockedTiles[ordinal]}
                                     />
                                 </React.Fragment> :

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Tile.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { hoverOverTile, cancelHover, lockTile, setSwapSource, swap } from '../../actions/index';
@@ -37,7 +37,7 @@ export const Tile = ({ url, text, link, ordinal, isBeingHovered, isLocked }) => 
                     onMouseEnter={() => onMouseEnter(ordinal)}
                     onMouseLeave={() => onMouseLeave(ordinal)}>
                     <i className={"lock fa fa-" + (isLocked ? "lock" : "unlock")} onClick={() => onClick(ordinal)}></i>
-                    <a className="owner" target="_blank" href={link}>{text}</a>
+                    <a className="owner" target="_blank" rel="noopener noreferrer" href={link}>{text}</a>
                 </td>
             );
         }
