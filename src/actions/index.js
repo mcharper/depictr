@@ -8,7 +8,8 @@ export const changeMosaicSideSize = mosaicSideSize => {
 export const lyricsChangedAction = (text, batchSize) => {
   var singleLinifiedText = text.replace(/(\r\n|\n|\r)/gm, ' ');
   return dispatch => {
-    fetch(process.env.REACT_APP_API_HOST + '/keywords/' + singleLinifiedText)
+    // fetch(process.env.REACT_APP_API_HOST + '/keywords/' + singleLinifiedText)
+    fetch('/.netlify/functions/keywords-get?lyric=' + singleLinifiedText)
       .then(res => res.json())
       .then(
         result => {
@@ -21,7 +22,8 @@ export const lyricsChangedAction = (text, batchSize) => {
 
 export const fetchPhotos = (keywords, batchSize) => {
   return dispatch => {
-    fetch(process.env.REACT_APP_API_HOST + `/photos/${keywords.join(' ')}?batchSize=${batchSize}`)
+    // fetch(process.env.REACT_APP_API_HOST + `/photos/${keywords.join(' ')}?batchSize=${batchSize}`)
+    fetch(`/.netlify/functions/photos-get?keywords=${keywords.join(' ')}&batchSize=${batchSize}`)
       .then(res => res.json())
       .then(
         json => {

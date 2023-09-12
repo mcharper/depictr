@@ -9,12 +9,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build"
   },
   "author": "Mike Harper",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.1",
+    "flickr-sdk": "^6.2.1",
+    "http-proxy-middleware": "^2.0.6",
+    "keyword-extractor": "^0.0.25",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "react": "^16.2.0",
@@ -22,18 +25,7 @@
     "react-redux": "^8.1.2",
     "react-scripts": "1.0.17",
     "redux": "^4.2.1",
-    "redux-thunk": "^2.4.2"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "redux-thunk": "^2.4.2",
+    "validator": "^13.11.0"
   }
 }
