@@ -26,7 +26,7 @@ export const reducer = (state = initialState, action) => {
             return { ...state, hoverOverTile: null }
 
         case 'LockTile':
-            var lockedTiles = state.lockedTiles.map((t, i) => { return i == action.ordinal ? !t : t });
+            var lockedTiles = state.lockedTiles.map((t, i) => { return +i === +action.ordinal ? !t : t });
             return { ...state, lockedTiles: lockedTiles }
 
         case 'FetchPhotosSuccess':
@@ -48,11 +48,11 @@ export const reducer = (state = initialState, action) => {
             let target = state.photos[action.ordinal];
 
             const changedPhotoArray = state.photos.map((photo, index) => {
-                if (index == action.ordinal) {
+                if (+index === +action.ordinal) {
                     return source;
                 }
 
-                if (index == state.swapSource) {
+                if (+index === +state.swapSource) {
                     return target;
                 }
 
@@ -61,11 +61,11 @@ export const reducer = (state = initialState, action) => {
             })
 
             const changedLockedTilesArray = state.lockedTiles.map((lockedStatus, index) => {
-                if (index == action.ordinal) {
+                if (+index === +action.ordinal) {
                     return state.lockedTiles[state.swapSource];
                 }
 
-                if (index == state.swapSource) {
+                if (+index === +state.swapSource) {
                     return state.lockedTiles[action.ordinal];
                 }
 
