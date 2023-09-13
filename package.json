@@ -3,7 +3,6 @@
   "version": "3.0.0",
   "description": "An app which takes lyrics or prose as input and retrieves interesting matching photos",
   "main": "index.js",
-  "homepage": "depictr.netlify.app",
   "scripts": {
     "start": "react-scripts start",
     "nd": "netlify dev",
