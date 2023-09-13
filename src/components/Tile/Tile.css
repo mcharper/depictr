@@ -30,6 +30,7 @@ td.hoverTile a.owner {
   cursor: pointer;
   font-size: 1em;
   left: calc(100% - 5em);
+  opacity: 50% important!;
   position: absolute;
   text-decoration: none;
   top: 45%;
