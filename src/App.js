@@ -12,11 +12,11 @@ class App extends Component {
         <div className="App-header">
           depictr
         </div>
-        <div className="control-panel">
-          <LyricsForm />
-          <ControlPanel />
-        </div>
-        <div>
+        <div className="grid">
+          <div className="area1">
+            <LyricsForm />
+            <ControlPanel />
+          </div>
           <Mosaic />
         </div>
       </div>

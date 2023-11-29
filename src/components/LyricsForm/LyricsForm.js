@@ -28,7 +28,7 @@ export const LyricsForm = () => {
   };
 
   return (
-    <form>
+    <form id="lyricsForm">
       <textarea placeholder='Type something, maybe a haiku, a verse from a song or a poem ...'
         onChange={onTextChanged}>
       </textarea>

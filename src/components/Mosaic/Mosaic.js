@@ -21,11 +21,11 @@ export const Mosaic = () => {
         <table className="mosaic">
             <tbody>
                 {rowOrCol.map((row, rowIndex) => (
-                    <tr key={rowIndex}>
+                    <tr key={`${rowIndex}`}>
                         {rowOrCol.map((heading, index) => {
                             const ordinal = rowIndex * +mosaicSideSize + index;
                             return ordinal < photos.length && photos[ordinal] ?
-                                <React.Fragment key={index}>
+                                <React.Fragment key={`${rowIndex}_${index}`}>
                                     <Tile url={photos[ordinal].url}
                                         text={photos[ordinal].owner}
                                         link={photos[ordinal].link}
@@ -37,7 +37,7 @@ export const Mosaic = () => {
                                         isLocked={lockedTiles[ordinal]}
                                     />
                                 </React.Fragment> :
-                                <td className="tile">
+                                <td className="tile" key={`${rowIndex}_${index}`}>
                                 </td>
                         })}
                     </tr>

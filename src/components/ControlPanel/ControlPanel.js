@@ -25,11 +25,11 @@ export const ControlPanel = () => {
   }
 
   return (
-    <div style={{ display: "inline-block" }}>
-      <button onClick={shuffle}>Shuffle</button>
+    <div id="controlPanel">
       <label style={{ color: 'gray' }}>Mosaic Size:</label>
       <input type="range" min="1" max="10" value={mosaicSideSize} onChange={changeMosaicSize} className="slider" ></input>
-      <button onClick={example1}>Example</button>
+      <button onClick={shuffle}>Shuffle</button>
+      {/* <button onClick={example1}>Example</button> */}
     </div>
   );
 }
