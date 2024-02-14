@@ -29,7 +29,7 @@ To develop locally:
 
 Clone the repo
 
-`nvm use` (sets node version appropriately)
+`nvm use` (sets node version appropriately - to 16.15.0 as per .nvmrc)
 
 `npm install`
 
